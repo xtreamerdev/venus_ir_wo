@@ -1,0 +1,38 @@
+Realtek Venus IR Write-Only device driver
+
+
+Description:
+
+The aim of this driver is to add write capability to the existing Venus IR
+driver used on RTD 1073/1283 Linux based platforms.
+
+Once installed, the module will create a /dev/venus_irrp_wo driver, to which
+you can write (binary) sequences of IR codes.
+A 'fakekey' sysfs is also created in /sys/devices/platform/VenusIR_W/fakekey,
+so that you can use something like:
+   echo 'fa05ff00' > /sys/devices/platform/VenusIR_W/fakekey
+to send an IR key to the IR driver  
+
+
+Compilation:
+
+You must have the sources for an RTD 1073/1283 Linux kernel available, as well
+as a MIPS compilation toolchain. You can find a fedora VMWare image with such
+a toolchain, as well as an RTD1283 kernel source (for Xtreamer devices) at:
+   http://code.google.com/p/xtreamerdev/downloads/list 
+
+Edit KERNELDIR in the Makefile to point to your kernel source and run 'make'
+
+
+Installation:
+
+Copy venus_ir_wo.ko to your Realtek system, and run:
+   insmod venus_ir_wo.ko
+(For debug, you can add a 'debug=1' parameter to the line above)
+This will create /dev/venus_irrp_wo and /sys/devices/platform/VenusIR_W/fakekey
+which you can then use to send IR keys to running applications
+
+Note:
+
+Depending on the device and applications, you may have to send the same key 
+twice for it to be recognized.

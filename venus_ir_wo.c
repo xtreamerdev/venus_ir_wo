@@ -45,7 +45,7 @@
 * Version information
 */
 #define DRIVER_VERSION "v0.4"
-#define DRIVER_AUTHOR "Pete B., xtreamerdev@gmail.com, https://github.com/xtreamerdev/venus_ir_wo"
+#define DRIVER_AUTHOR "Pete B., xtreamerdev@gmail.com, http://github.com/xtreamerdev/venus_ir_wo"
 #define DRIVER_DESC "Venus IR - Write-Only Driver"
 
 extern platform_info_t platform_info;
